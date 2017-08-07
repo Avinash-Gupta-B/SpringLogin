@@ -123,7 +123,7 @@
             <div class="panel-group" id="accordion">
                 
                 <div class="row">
-                <div class="col-md-10 panel-heading pcf-pub-cmp-info-ttl accordion-toggle" data-id="0" data-toggle="collapse" data-parent="#accordion"  href="#collapseOne" style="padding:0px;">
+                <div class="col-md-10 panel-heading pcf-pub-cmp-info-ttl accordion-toggle" data-id="0"  aria-expanded="false" data-toggle="collapse" data-parent="#accordion"  href="#collapseOne" style="padding:0px;">
                     Some basic terminology
                 </div>
                 <div class="col-md-2">
@@ -225,7 +225,7 @@
                 <!-- END: #1 Object -->
                 <!-- #2 Object -->
                 <div class="row">
-                    <div class="col-md-10 panel-heading pcf-pub-cmp-info-ttl accordion-toggle" data-id="1" data-toggle="collapse" data-parent="#accordion" href="#collapsetwo" style="padding:0px;">
+                    <div class="col-md-10 panel-heading pcf-pub-cmp-info-ttl accordion-toggle" data-id="1" aria-expanded="false" data-toggle="collapse" data-parent="#accordion" href="#collapsetwo" style="padding:0px;">
                         Your agreement with the provider of President's Choice Financial services
                     </div>
                     <div class="col-md-2">
@@ -382,12 +382,20 @@
     <script>
         $(document).ready(function(){
                 $('.panel-heading').click(function () {
+            //alert("");  
+            
+                    // if ($(".panel-heading").attr('aria-expanded') == "false") {
+                    //     alert("false");
+                    //     $('.qwerty').removeClass("pcf-tgl-dn").addClass("pcf-tgl-up");
+                    // } else if ($(".panel-heading").attr('aria-expanded') == "true") {
+                    //     alert("true");
+                    //     $('.qwerty').removeClass("pcf-tgl-up").addClass("pcf-tgl-dn");
+                    // }
                     let id = $(this).data("id");
-                     if($(this).hasClass('collapsed')){
+                     if($(this).attr('aria-expanded') == "false"){
                             $('#pcf-dv-toggle-click-'+id).removeClass("pcf-tgl-dn").addClass("pcf-tgl-up");
                      }else {
-                         alert("2")
-                         $('#pcf-dv-toggle-click-'+id).removeClass("pcf-tgl-up").addClass("pcf-tgl-dn");
+                            $('#pcf-dv-toggle-click-'+id).removeClass("pcf-tgl-up").addClass("pcf-tgl-dn");
                      }
                     
                     
