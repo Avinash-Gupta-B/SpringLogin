@@ -1,0 +1,100 @@
+<html>
+<body>
+<style>
+*{
+    margin:0;
+}
+.expanded{
+    transition: 0s  !important;
+    height:100%;
+    width:100%;
+    transform: rotateY(180deg);
+}
+table {
+    width: 200px;
+    height: 200px;
+    border-collapse: collapse;
+}
+.front, .back, .flip, .flip-container {
+    height:100%;
+    width:100%;
+    left:0;
+    top:0;
+}
+.flip-container {
+    perspective: 1000;
+}
+.flip-container:not(.expanded):hover .flip, .flip-container.hover .flip {
+    transform: rotateY(180deg);
+}
+.flip {
+    transition: 1s;
+    transform-style: preserve-3d;
+    position: relative;
+}
+.front, .back {
+    top: 0;
+    left: 0;
+    backface-visibility: hidden;
+    position: absolute;
+}
+.front {
+    z-index: 2;
+    transform: rotateY(0deg);
+    background-color:purple;
+}
+.back {
+    transform: rotateY(180deg);
+    background-color:orange;
+}
+</style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<div class="content">
+  <table>
+    <tr>
+      <td>
+        <div class="flip-container">
+          <div class="flip">
+            <div class="front"></div>
+            <div class="back"></div>
+          </div>
+        </div>
+      </td>
+      <td>
+        <div class="flip-container">
+          <div class="flip">
+            <div class="front"></div>
+            <div class="back"></div>
+          </div>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <div class="flip-container">
+          <div class="flip">
+            <div class="front"></div>
+            <div class="back"></div>
+          </div>
+        </div>
+      </td>
+      <td>
+        <div class="flip-container">
+          <div class="flip">
+            <div class="front"></div>
+            <div class="back"></div>
+          </div>
+        </div>
+      </td>
+    </tr>
+  </table>
+</div>
+<script>
+$(function(){
+    $(".flip").click(function(){ 
+        $(this).toggleClass("expanded");
+    });
+});
+</script>
+</body>
+</html>
