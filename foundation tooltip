@@ -1,0 +1,36 @@
+<link href="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.3.1/css/foundation-flex.min.css" rel='stylesheet'/>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.3.1/js/foundation.min.js"></script>
+<div class="small-10 columns">
+  <p ><span id="sliderOutput1" data-tooltip aria-haspopup="true" class="has-tip" data-disable-hover="false" tabindex="1" title="Fancy word for a beetle."></span></p>
+  <div class="slider" data-slider data-initial-start="50">
+    <span class="slider-handle"  data-slider-handle role="slider" tabindex="1" aria-controls="sliderOutput1"></span>
+    <span class="slider-fill" data-slider-fill></span>
+  </div>
+</div>
+<style>
+body {
+  margin: 2rem;
+}
+.slider-handle{
+  border-radius:50%;
+}
+.slider{
+  background-color: #1779ba;
+}
+.slider-fill{
+  background-color: #1779ba;
+}
+</style>
+<script>
+$(document).foundation();
+$('[data-slider]').on('moved.zf.slider', function(){
+  var sliderValue = $(".slider-handle").attr("aria-valuenow");
+  $("#sliderOutput1").text(sliderValue);
+  if(sliderValue > 70){
+    $('#sliderOutput1').foundation('show');
+  }else{
+    $('#sliderOutput1').foundation('hide');
+  }
+});
+</script>
