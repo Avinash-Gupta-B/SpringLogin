@@ -252,7 +252,7 @@
             </div>
             <div class="col-md-5 pcf-pub-bottom-right">
                 <h2 class="pcf-calc-right-text">My monthly spend is </h2>
-                <h2 class="pcf-pub-calc-right-left">$2,635</h2>
+                <h2 class="pcf-pub-calc-right-left" id="pc_monthly"></h2>
             </div>
         </div>
         <div class="row pcf-pub-icons-top">
@@ -309,9 +309,9 @@
             <div class="col-md-5 pcf-pub-bottom-right">
                 <h2 class="pcf-calc-right-text">That's</h2>
                  <div>
-                    <h2 class="pcf-pub-calc-right-left">$1200</h2>
+                    <h2 class="pcf-pub-calc-right-left" id="pc_anually"></h2>
                      <h2 class="pcf-calc-right-text-left">anually</h2>
-                    <h6 id="pc_points">(908,400 PC Points)</h6>
+                    <h6 id="pc_points"></h6>
                 </div>
            </div>
        </div>
@@ -650,8 +650,12 @@ var sliderValue6 = $("#slider6-handle-panel").attr("aria-valuenow");
       $("#slider6-tooltip").hide();
   }
   pc_points = (parseInt($("#slider1-inputValue").val()) + parseInt($("#slider2-inputValue").val()) + parseInt($("#slider3-inputValue").val()) 
-				+ parseInt($("#slider5-inputValue").val()) + parseInt($("#slider6-inputValue").val())) * 10 + parseInt($("#slider4-inputValue").val()) * 20;
-  $("#pc_points").text("("+ pc_points +"PC Points)")
+				+ parseInt($("#slider5-inputValue").val()) + parseInt($("#slider6-inputValue").val())) * 10;
+  var pc_points_travel = parseInt($("#slider4-inputValue").val()) * 20;
+  
+  $("#pc_monthly").text("$ "+ (pc_points/10 + pc_points_travel/20));
+  $("#pc_anually").text("$ "+ (pc_points/10 + pc_points_travel/20)*12);
+  $("#pc_points").text("("+ (pc_points + pc_points_travel)+"PC Points)");
 });
     </script>
 </body>
